@@ -9,7 +9,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nft', express.static(path.join(__dirname, 'public', 'nft')));
 
 // Route to serve the HTML file
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
+    res.send("Welcome to Arvr API");
+});
+
+
+app.get('/trex', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'nft', 'index.html'));
 });
 

@@ -7,6 +7,7 @@ const PORT = 3000;
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nft', express.static(path.join(__dirname, 'public', 'nft')));
+app.use('/table', express.static(path.join(__dirname, 'public', 'table')));
 
 // Route to serve the HTML file
 app.get("/", (req, res) => {
@@ -16,6 +17,10 @@ app.get("/", (req, res) => {
 
 app.get('/trex', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'nft', 'index.html'));
+});
+
+app.get('/table', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'table', 'index.html'));
 });
 
 // Start the server

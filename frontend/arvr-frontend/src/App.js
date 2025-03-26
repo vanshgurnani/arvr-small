@@ -1,25 +1,20 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 const App = () => {
   const [data, setData] = useState({});
 
-  const apis = {
-    1: "https://arvr-api.vercel.app/table",
-    2: "https://jsonplaceholder.typicode.com/users/1",
-    3: "https://jsonplaceholder.typicode.com/comments/1",
-    4: "https://jsonplaceholder.typicode.com/albums/1",
-    5: "https://jsonplaceholder.typicode.com/photos/1",
-    6: "https://jsonplaceholder.typicode.com/todos/1"
+  const baseURL = "https://arvr-api.vercel.app";
+
+  const infoData = {
+    1: { name: "Table", description: "A wooden dining table, perfect for family meals.", url: `${baseURL}/table` },
+    2: { name: "Chair", description: "A comfortable ergonomic office chair.", url: `${baseURL}/chair` },
+    3: { name: "Plastic Chair", description: "A lightweight and durable plastic chair.", url: `${baseURL}/plastic-chair` },
+    4: { name: "Modern Arm", description: "A stylish modern armchair with cushioned seating.", url: `${baseURL}/modern-arm` },
+    5: { name: "Steel Frame", description: "A sturdy steel-framed chair for outdoor use.", url: `${baseURL}/steel-frame` }
   };
 
-  const fetchData = async (id) => {
-    try {
-      const response = await axios.get(apis[id]);
-      setData((prevData) => ({ ...prevData, [id]: response.data }));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const fetchData = (id) => {
+    setData((prevData) => ({ ...prevData, [id]: infoData[id] }));
   };
 
   return (
@@ -34,20 +29,21 @@ const App = () => {
       {/* Main Content */}
       <div className="container mt-5">
         <div className="row">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {[1, 2, 3, 4, 5].map((item) => (
             <div key={item} className="col-md-4">
               <div className="card mb-3">
                 <div className="card-body">
-                  <h5 className="card-title">Box {item}</h5>
-                  <p className="card-text">Click below to fetch API data.</p>
-                  <button className="btn btn-primary" onClick={() => fetchData(item)}>Fetch Data</button>
+                  <h5 className="card-title">{infoData[item].name}</h5>
+                  <p className="card-text">Click below to view information.</p>
+                  <button className="btn btn-primary" onClick={() => fetchData(item)}>View Info</button>
+                  <a href={infoData[item].url} className="btn btn-secondary ms-2" target="_blank" rel="noopener noreferrer">Go to {infoData[item].name}</a>
                 </div>
               </div>
               {data[item] && (
                 <div className="card mt-2">
                   <div className="card-body">
-                    <h5 className="card-title">{data[item].title || data[item].name}</h5>
-                    <p className="card-text">{data[item].body || data[item].email || data[item].url}</p>
+                    <h5 className="card-title">{data[item].name}</h5>
+                    <p className="card-text">{data[item].description}</p>
                   </div>
                 </div>
               )}

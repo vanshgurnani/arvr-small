@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -13,7 +17,6 @@ app.use('/table', express.static(path.join(__dirname, 'public', 'table')));
 app.get("/", (req, res) => {
     res.send("Welcome to Arvr API");
 });
-
 
 app.get('/trex', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'nft', 'index.html'));

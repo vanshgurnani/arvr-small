@@ -23,6 +23,10 @@ app.get('/table', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'table', 'index.html'));
 });
 
+app.get('/chair', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'chair', 'index.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

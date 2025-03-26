@@ -10,14 +10,22 @@ app.use(cors());
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/nft', express.static(path.join(__dirname, 'public', 'nft')));
-app.use('/table', express.static(path.join(__dirname, 'public', 'table')));
 
-// Route to serve the HTML file
+// Define routes for specific static subdirectories
+const staticRoutes = [
+    'nft', 'table', 'plastic-chair', 'modern-arm', 'steel-frame', 'chair'
+];
+
+staticRoutes.forEach(route => {
+    app.use(`/${route}`, express.static(path.join(__dirname, 'public', route)));
+});
+
+// API welcome route
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to Arvr API" });
 });
 
+// Serve HTML files for each specific route
 app.get('/trex', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'nft', 'index.html'));
 });
@@ -28,6 +36,18 @@ app.get('/table', (req, res) => {
 
 app.get('/chair', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'chair', 'index.html'));
+});
+
+app.get('/plastic-chair', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'plastic-chair', 'index.html'));
+});
+
+app.get('/modern-arm', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'modern-arm', 'index.html'));
+});
+
+app.get('/steel-frame', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'steel-frame', 'index.html'));
 });
 
 // Start the server

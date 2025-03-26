@@ -15,7 +15,7 @@ app.use('/table', express.static(path.join(__dirname, 'public', 'table')));
 
 // Route to serve the HTML file
 app.get("/", (req, res) => {
-    res.send("Welcome to Arvr API");
+    res.json({ message: "Welcome to Arvr API" });
 });
 
 app.get('/trex', (req, res) => {

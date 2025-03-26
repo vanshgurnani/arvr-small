@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const App = () => {
   const [data, setData] = useState({});
 
   const apis = {
-    1: "https://arvr-api.vercel.app/",
+    1: "https://arvr-api.vercel.app/table",
     2: "https://jsonplaceholder.typicode.com/users/1",
     3: "https://jsonplaceholder.typicode.com/comments/1",
     4: "https://jsonplaceholder.typicode.com/albums/1",
@@ -14,9 +15,8 @@ const App = () => {
 
   const fetchData = async (id) => {
     try {
-      const response = await fetch(apis[id]);
-      const result = await response.json();
-      setData((prevData) => ({ ...prevData, [id]: result }));
+      const response = await axios.get(apis[id]);
+      setData((prevData) => ({ ...prevData, [id]: response.data }));
     } catch (error) {
       console.error("Error fetching data:", error);
     }

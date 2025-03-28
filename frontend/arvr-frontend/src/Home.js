@@ -22,7 +22,7 @@ const Home = () => {
     <div style={{ backgroundColor: "#d2b48c", minHeight: "100vh", padding: "20px" }}>
       <div className="container mt-5" style={{ padding: "20px", borderRadius: "10px" }}>
         <div className="row">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+          {[1, 2, 3, 4, 5, 6].map((item) => (
             <div key={item} className="col-md-4">
               <div className="card mb-3" style={{ backgroundColor: "#e3f2fd", border: "1px solid #90caf9" }}>
                 <div className="card-body">

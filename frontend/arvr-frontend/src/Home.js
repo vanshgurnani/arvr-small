@@ -7,7 +7,10 @@ const infoData = {
   2: { name: "Chair", description: "A comfortable ergonomic office chair.", url: `${baseURL}/chair` },
   3: { name: "Plastic Chair", description: "A lightweight and durable plastic chair.", url: `${baseURL}/plastic-chair` },
   4: { name: "Modern Arm", description: "A stylish modern armchair with cushioned seating.", url: `${baseURL}/modern-arm` },
-  5: { name: "Steel Frame", description: "A sturdy steel-framed chair for outdoor use.", url: `${baseURL}/steel-frame` }
+  5: { name: "Steel Frame", description: "A sturdy steel-framed chair for outdoor use.", url: `${baseURL}/steel-frame` },
+  6: { name: "Cabinet", description: "A spacious wooden cabinet for storage.", url: `${baseURL}/cabinet` },
+  7: { name: "Coffee Table", description: "A modern coffee table for your living room.", url: `${baseURL}/coffee-table` },
+  8: { name: "Shelves", description: "Stylish shelves to organize your space.", url: `${baseURL}/shelves` }
 };
 
 const Home = () => {
@@ -21,7 +24,7 @@ const Home = () => {
     <div style={{ backgroundColor: "#d2b48c", minHeight: "100vh", padding: "20px" }}>
       <div className="container mt-5" style={{ padding: "20px", borderRadius: "10px" }}>
         <div className="row">
-          {[1, 2, 3, 4, 5].map((item) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <div key={item} className="col-md-4">
               <div className="card mb-3" style={{ backgroundColor: "#e3f2fd", border: "1px solid #90caf9" }}>
                 <div className="card-body">

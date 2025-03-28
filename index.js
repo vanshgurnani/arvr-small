@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define routes for specific static subdirectories
 const staticRoutes = [
-    'nft', 'table', 'plastic-chair', 'modern-arm', 'steel-frame', 'chair', 'cabinet', 'coffee-table', 'shelves'
+    'nft', 'table', 'plastic-chair', 'modern-arm', 'steel-frame', 'chair', 'cabinet', 'coffee-table'
 ];
 
 staticRoutes.forEach(route => {
@@ -56,10 +56,6 @@ app.get('/cabinet', (req, res) => {
 
 app.get('/coffee-table', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'coffee-table', 'index.html'));
-});
-
-app.get('/shelves', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'shelves', 'index.html'));
 });
 
 // 404 handler

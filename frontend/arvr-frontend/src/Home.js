@@ -9,7 +9,6 @@ const infoData = {
   4: { name: "Modern Arm", description: "A stylish modern armchair with cushioned seating.", url: `${baseURL}/modern-arm` },
   5: { name: "Steel Frame", description: "A sturdy steel-framed chair for outdoor use.", url: `${baseURL}/steel-frame` },
   6: { name: "Cabinet", description: "A spacious wooden cabinet for storage.", url: `${baseURL}/cabinet` },
-  7: { name: "Coffee Table", description: "A modern coffee table for your living room.", url: `${baseURL}/coffee-table` },
 };
 
 const Home = () => {
